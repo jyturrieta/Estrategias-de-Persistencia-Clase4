@@ -23,20 +23,35 @@ Vehiculo.init({
 
 
 sequelize.sync().then(() => Vehiculo.create({
-    marca: 'Renault',
-    modelo: 'Kwid',
-    anio: 2017
+    marca: 'Mercedes',
+    modelo: 'AMG One',
+    anio: 2021
   }))
   .then(jane => {
     console.log(jane.toJSON());
   });
 
-Vehiculo.update({ 
-  marca: "Honda" }, {
-  where: {
-    anio: 2017
-  }
-}).then(() => {
-  console.log("Actualizado");
-});
-  
+  Vehiculo.create({
+    marca: 'Ferrari',
+    modelo: 'F2012',
+    anio: 2013
+  })
+  .then(jane => {
+    console.log(jane.toJSON());
+  });
+
+  Vehiculo.create({
+    marca: 'Renault',
+    modelo: 'R25',
+    anio: 2005
+  })
+  .then(jane => {
+    console.log(jane.toJSON());
+  });
+
+  Vehiculo.update({
+      modelo: 'R26',
+      where:{
+          modelo: 'R25',
+      }
+  })
